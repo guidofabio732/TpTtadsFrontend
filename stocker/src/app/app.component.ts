@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TipoMaquinaServiceService } from "./tipo-maquina-service.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'stocker';
+  constructor(private api: TipoMaquinaServiceService) {}
+  ngOnInit() {
+    this.api.apiCall().subscribe((data)=>{
+      console.warn("get api data",data)
+      this.title = 'Guido Fa'
+    })
+  }
 }
