@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'stocker';
   constructor(private api: TipoMaquinaServiceService) {}
   ngOnInit() {
-    this.api.apiCall().subscribe((data)=>{
-      console.warn("get api data",data)
-      this.title = 'Guido Fa'
-    })
+    // this.api.apiCall().subscribe((data)=>{
+    //   console.warn("get api data",data)
+    //   this.title = 'Guido Fa'
+    // })
   }
 }
