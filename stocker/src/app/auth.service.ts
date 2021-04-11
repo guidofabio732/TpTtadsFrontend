@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Usuario } from './models/Usuario';
@@ -17,21 +18,21 @@ export class AuthService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('currentUser')));
+  constructor(private http: HttpClient, private router: Router) {
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   //Login
 
   login(nombre_usuario: string, password: string) {
-    return this.http.post<Usuario>(`${this.apiUrl}/usuario/login`, { nombre_usuario, password }, this.httpOptions)
+    return this.http.post<any>(`${this.apiUrl}/usuario/login`, { nombre_usuario, password }, this.httpOptions)
       .pipe(
-        map((user: any) => {
+        map((res: any) => {          
           // guardo los detalles del usuario y el token en el local storage
-          localStorage.setItem('currentUser', JSON.stringify(user.data));
-          this.currentUserSubject.next(user.data); // emite un observable a los demas componentes con el nuevo usuario
-          return user;
+          localStorage.setItem('currentUser', JSON.stringify(res.data));
+          this.currentUserSubject.next(res.data); // emite un observable a los demas componentes con el nuevo usuario
+          return res.data;
         })
       );
   }
@@ -41,6 +42,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/login']);
   }
 
   //Register
