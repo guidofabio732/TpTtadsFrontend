@@ -8,7 +8,7 @@ export class TipoMaquinaServiceService {
 
   constructor(private http: HttpClient) {}
 
-  apiCall()
+  getTipoMaquina()
   {
     return this.http.get('/api/tipo_maquina/list')
   }

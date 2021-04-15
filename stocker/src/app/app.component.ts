@@ -8,10 +8,38 @@ import { TipoMaquina } from "./models/tipomaquina";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  tiposMaquinaArray: TipoMaquina[] = [
-  {id: 1, descp: "CP"},
-  {id: 2, descp: "F220"},
-  {id: 3, descp: "F300"},
-  {id: 4, descp: "F330"},
-  ];
+  title = "Stocker";
+  selectedTipoMaquina: TipoMaquina = new TipoMaquina();
+
+  addOrEdit() {
+    if(this.selectedTipoMaquina.id === 0) {
+      this.selectedTipoMaquina.id = this.tiposMaquinaArray.length + 1;
+      this.tiposMaquinaArray.push(this.selectedTipoMaquina);
+    }
+    
+
+    this.selectedTipoMaquina = new TipoMaquina();
+  }
+
+  delete() {
+    if(confirm('¿Estás seguro que deseas eliminar el elemento?')) {
+      this.tiposMaquinaArray = this.tiposMaquinaArray.filter(x => x != this.selectedTipoMaquina);
+      this.selectedTipoMaquina = new TipoMaquina();
+    }
+  }
+
+  openForEdit(tipoMaquina: TipoMaquina) {
+    this.selectedTipoMaquina = tipoMaquina
+  }
+
+  tiposMaquinaArray: any = [];
+  constructor(private tipoMaquinaService: TipoMaquinaServiceService) {}
+  ngOnInit() {
+    this.tipoMaquinaService.getTipoMaquina().subscribe(
+      res => {
+        this.tiposMaquinaArray = res
+      },
+      err => console.log(err)
+    )
+  }
 }
