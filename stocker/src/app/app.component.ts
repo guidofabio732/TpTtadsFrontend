@@ -13,12 +13,23 @@ export class AppComponent {
 
   addOrEdit() {
     if(this.selectedTipoMaquina.id === 0) {
-      this.selectedTipoMaquina.id = this.tiposMaquinaArray.length + 1;
-      this.tiposMaquinaArray.push(this.selectedTipoMaquina);
+      this.tipoMaquinaService.createTipoMaquina(this.selectedTipoMaquina).subscribe(
+        res => {
+          this.selectedTipoMaquina.id = this.tiposMaquinaArray.length+1;
+          this.tiposMaquinaArray.push(this.selectedTipoMaquina);
+          this.selectedTipoMaquina = new TipoMaquina();
+        },
+        err => console.log(err)
+      )
+      
+    } else {
+      this.tipoMaquinaService.editTipoMaquina(this.selectedTipoMaquina).subscribe(
+        res => {
+          this.selectedTipoMaquina = new TipoMaquina();
+        },
+        err => console.log(err)
+      )
     }
-    
-
-    this.selectedTipoMaquina = new TipoMaquina();
   }
 
   delete() {
