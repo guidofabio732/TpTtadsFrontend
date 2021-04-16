@@ -20,4 +20,8 @@ export class TipoMaquinaServiceService {
   editTipoMaquina(tipoMaquina: TipoMaquina) {
     return this.http.post('/api/tipo_maquina/update', tipoMaquina)
   }
+
+  deleteTipoMaquina(tipoMaquina: TipoMaquina) {
+    
+  }
 }
