@@ -7,12 +7,14 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { JwtInterceptor } from './jwt.interceptor';
+import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ListaUsuariosComponent,
+    TipomaquinaComponent,
   ],
   imports: [
     BrowserModule,
