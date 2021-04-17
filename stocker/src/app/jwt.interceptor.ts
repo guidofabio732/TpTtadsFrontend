@@ -14,7 +14,7 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-
+    //this.authService.logout();
     const currentUser = this.authService.currentUserValue;
     
     const isApiUrl = request.url.startsWith('http://localhost:8000/api');
