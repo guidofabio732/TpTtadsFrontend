@@ -23,7 +23,7 @@ export class TipomaquinaComponent implements OnInit {
         },
         err => console.log(err)
       )
-      
+  
     } else {
       this.tipoMaquinaService.editTipoMaquina(this.selectedTipoMaquina).subscribe(
         res => {
@@ -36,8 +36,13 @@ export class TipomaquinaComponent implements OnInit {
 
   delete() {
     if(confirm('¿Estás seguro que deseas eliminar el elemento?')) {
-      this.tiposMaquinaArray = this.tiposMaquinaArray.filter(x => x != this.selectedTipoMaquina);
-      this.selectedTipoMaquina = new TipoMaquina();
+      this.tipoMaquinaService.deleteTipoMaquina(this.selectedTipoMaquina).subscribe(
+        res => {
+          this.tiposMaquinaArray = this.tiposMaquinaArray.filter(x => x != this.selectedTipoMaquina);
+          this.selectedTipoMaquina = new TipoMaquina();
+        },
+        err => console.log(err)
+      )
     }
   }
 
