@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
 
-    // si ya esta logueado lo manda a la pagina principal, por ahora es solo un listado
+    // si ya esta logueado lo manda a la pagina principal
     if (this.authService.currentUserValue) {
       this.router.navigate(['/']);
     }
@@ -22,14 +22,15 @@ export class LoginComponent implements OnInit {
   formIsValid: boolean;
   loginForm: FormGroup;
   usuario: Usuario;
-  error = '';
+  error: any;
+  errorMsg = '';
 
 
   ngOnInit(): void {
     this.formIsValid = true;
     this.loginForm = new FormGroup({
       nombre_usuario: new FormControl('', [
-        Validators.required
+        Validators.required,
       ]
       ),
       password: new FormControl('', [
@@ -40,12 +41,7 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    if (this.loginForm.invalid) {
-
-      this.formIsValid = false;
-      console.log(this.formIsValid);
-      return;
-    }
+    if (this.loginForm.invalid) return;
 
     this.usuario = this.loginForm.value; //recupero el usuario del form
     this.authService.login(this.usuario.nombre_usuario, this.usuario.password)
@@ -55,9 +51,10 @@ export class LoginComponent implements OnInit {
         },
         error: error => {
           this.error = error;
-          console.log(this.error);
+          this.errorMsg = this.error.error.message;
+          console.log(this.error.error.message);
         }
-      })
+      });
   }
 
   get nombre_usuario() { return this.loginForm.get('nombre_usuario'); }

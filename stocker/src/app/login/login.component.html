@@ -6,24 +6,35 @@
 
     <div class="row align-items-center justify-content-center mt-3">
         <div class="col-md-6">
+            <div class="alert alert-danger" *ngIf="error">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                {{errorMsg}}
+            </div>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="form-group">
                     <label class="text-white" for="nombre_usuario">Usuario</label>
                     <input type="text" name="nombre_usuario" class="form-control" formControlName="nombre_usuario"
                         required />
-                    <div class="alert alert-danger"
-                        *ngIf="nombre_usuario.errors.required && nombre_usuario.touched || !formIsValid">
-                        Debe ingresar su Usuario</div>
+                    <div *ngIf="nombre_usuario.invalid && (nombre_usuario.dirty || nombre_usuario.touched)"
+                        class="mt-1 alert alert-danger">
+                        <div *ngIf="nombre_usuario.errors.required">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            Ingrese su nombre de Usuario por favor
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="text-white" for="password">Contraseña</label>
                     <input type="password" name="password" class="form-control" formControlName="password" required />
-                    <div class="alert alert-danger"
-                        *ngIf="password.errors.required && password.touched || !formIsValid">Debe ingresar
-                        su Contraseña</div>
-
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                        class="mt-1 alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            Ingrese su Contraseña por favor
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Iniciar sesión</button>
             </form>
         </div>
         <!--[disabled]="!loginForm.valid"-->
