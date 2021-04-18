@@ -24,6 +24,6 @@ export class TipoMaquinaServiceService {
   }
 
   deleteTipoMaquina(tipoMaquina: TipoMaquina) {
-    return this.http.delete(this.apiUrl+'tipo_maquina/delete/id:'+tipoMaquina.id)
+    return this.http.delete(this.apiUrl+'tipo_maquina/delete/id/'+tipoMaquina.id)
   }
 }
