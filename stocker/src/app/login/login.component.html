@@ -5,18 +5,28 @@
     <h2 class="h4 mt-5 text-center text-secondary">Iniciar sesión</h2>
 
     <div class="row align-items-center justify-content-center mt-3">
+        <div class="col-md-6">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label for="nombre_usuario">Usuario</label>
+                    <input type="text" name="nombre_usuario" class="form-control" formControlName="nombre_usuario"
+                        required />
+                    <div class="alert alert-danger"
+                        *ngIf="nombre_usuario.errors.required && nombre_usuario.touched || !formIsValid">
+                        Debe ingresar su Usuario</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" class="form-control" formControlName="password" required />
+                    <div class="alert alert-danger"
+                        *ngIf="password.errors.required && password.touched || !formIsValid">Debe ingresar
+                        su Contraseña</div>
 
-        <form class="col-md-6" [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="form-group">
-                <label for="nombre_usuario">Usuario</label>
-                <input type="text" name="nombre_usuario" class="form-control" formControlName="nombre_usuario" required />
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" name="password" class="form-control" formControlName="password" required />
-            </div>
-            <button class="btn btn-primary" [disabled]="!loginForm.valid" type="submit">Iniciar sesión</button>
-        </form>
+                </div>
+                <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+        <!--[disabled]="!loginForm.valid"-->
     </div>
     <div class="row justify-content-center mt-3">
         <a class="text-success h5" href="#">Crear nuevo usuario</a>
