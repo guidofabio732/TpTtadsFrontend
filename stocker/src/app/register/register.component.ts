@@ -45,9 +45,9 @@ export class RegisterComponent implements OnInit {
 
     this.usuario = this.registerForm.value;
 
-    // if (this.usuario.nombre_usuario.trim() === '' || this.usuario.password.trim() === '' 
-    // || this.usuario.nombre.trim() === '' || this.usuario.apellido.trim() === '' 
-    // || this.usuario.passwordConfirm.trim()) return;
+    if (this.usuario.nombre_usuario.trim() === '' || this.usuario.password.trim() === '' 
+    || this.usuario.nombre.trim() === '' || this.usuario.apellido.trim() === '' 
+    || this.usuario.passwordConfirm.trim()) return;
 
     if (this.usuario.password !== this.usuario.passwordConfirm) {
       this.passCtrl = false;
