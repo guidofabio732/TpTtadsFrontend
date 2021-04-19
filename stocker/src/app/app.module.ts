@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { JwtInterceptor } from './jwt.interceptor';
 import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
     LoginComponent,
     ListaUsuariosComponent,
     TipomaquinaComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.formIsValid = true;
     this.loginForm = new FormGroup({
       nombre_usuario: new FormControl('', [
         Validators.required,
@@ -42,8 +41,12 @@ export class LoginComponent implements OnInit {
   login() {
 
     if (this.loginForm.invalid) return;
+    
 
     this.usuario = this.loginForm.value; //recupero el usuario del form
+
+    if(this.usuario.nombre_usuario.trim() === '' || this.usuario.password.trim() === '') return;
+
     this.authService.login(this.usuario.nombre_usuario, this.usuario.password)
       .subscribe({
         next: () => {
@@ -52,7 +55,6 @@ export class LoginComponent implements OnInit {
         error: error => {
           this.error = error;
           this.errorMsg = this.error.error.message;
-          console.log(this.error.error.message);
         }
       });
   }

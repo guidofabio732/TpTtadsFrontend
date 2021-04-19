@@ -15,7 +15,7 @@
                     <label class="text-white" for="nombre_usuario">Usuario</label>
                     <input type="text" name="nombre_usuario" class="form-control" formControlName="nombre_usuario"
                         required />
-                    <div *ngIf="nombre_usuario.invalid && (nombre_usuario.dirty || nombre_usuario.touched)"
+                    <div *ngIf="nombre_usuario.invalid && nombre_usuario.dirty"
                         class="mt-1 alert alert-danger">
                         <div *ngIf="nombre_usuario.errors.required">
                             <i class="bi bi-exclamation-triangle-fill"></i>
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label class="text-white" for="password">Contraseña</label>
                     <input type="password" name="password" class="form-control" formControlName="password" required />
-                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                    <div *ngIf="password.invalid && password.dirty"
                         class="mt-1 alert alert-danger">
                         <div *ngIf="password.errors.required">
                             <i class="bi bi-exclamation-triangle-fill"></i>
@@ -40,6 +40,6 @@
         <!--[disabled]="!loginForm.valid"-->
     </div>
     <div class="row justify-content-center mt-3">
-        <a class="text-info h5" href="#">Crear nuevo usuario</a>
+        <a class="text-info h5" routerLink="/register">Crear nuevo usuario</a>
     </div>
 </div>

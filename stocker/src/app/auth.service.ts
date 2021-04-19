@@ -46,8 +46,8 @@ export class AuthService {
   }
 
   //Register
-  register(nuevoUsuario: string) {
-    return this.http.post<any>(`${this.apiUrl}/register`, nuevoUsuario, this.httpOptions);
+  register(nuevoUsuario: any) {
+    return this.http.post<any>(`${this.apiUrl}/usuario/register`, nuevoUsuario, this.httpOptions);
   }
   
   public get currentUserValue() {

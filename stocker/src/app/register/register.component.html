@@ -1,0 +1,65 @@
+<h1 class="mt-5 text-white text-center">Registro de nuevo usuario</h1>
+
+<div class="container text-white">
+    <div class="row align-items-center justify-content-center mt-5">
+        <form class="col-md-6" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control" formControlName="nombre" required />
+                <div *ngIf="nombre.invalid && nombre.dirty" class="mt-1 alert alert-danger">
+                    <div *ngIf="nombre.errors.required">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Este campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" class="form-control" formControlName="apellido" required />
+                <div *ngIf="apellido.invalid && apellido.dirty" class="mt-1 alert alert-danger">
+                    <div *ngIf="apellido.errors.required">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Este campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nombre_usuario">Nombre de usuario</label>
+                <input type="text" name="nombre_usuario" class="form-control" formControlName="nombre_usuario"
+                    required />
+                <div *ngIf="nombre_usuario.invalid && nombre_usuario.dirty" class="mt-1 alert alert-danger">
+                    <div *ngIf="nombre_usuario.errors.required">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Este campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" class="form-control" formControlName="password" required />
+                <div *ngIf="password.invalid && password.dirty" class="mt-1 alert alert-danger">
+                    <div *ngIf="password.errors.required">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Este campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">Repita su Contraseña</label>
+                <input type="password" name="passwordConfirm" class="form-control" formControlName="passwordConfirm"
+                    required />
+                <div *ngIf="passwordConfirm.invalid && passwordConfirm.dirty" class="mt-1 alert alert-danger">
+                    <div *ngIf="passwordConfirm.errors.required">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Este campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="!passCtrl">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                Las contraseñas no coinciden
+            </div>
+            <input type="submit" class="btn btn-success" value="Registrar">
+        </form>
+    </div>
+</div>
