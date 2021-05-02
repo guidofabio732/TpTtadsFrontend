@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../models/Usuario';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -15,8 +16,9 @@ export class RegisterComponent implements OnInit {
   usuario: Usuario;
   error = '';
   passCtrl: boolean;
+  exists = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.passCtrl = true;
@@ -47,7 +49,7 @@ export class RegisterComponent implements OnInit {
 
     if (this.usuario.nombre_usuario.trim() === '' || this.usuario.password.trim() === '' 
     || this.usuario.nombre.trim() === '' || this.usuario.apellido.trim() === '' 
-    || this.usuario.passwordConfirm.trim()) return;
+    || this.usuario.passwordConfirm.trim() === '') return;
 
     if (this.usuario.password !== this.usuario.passwordConfirm) {
       this.passCtrl = false;
@@ -55,8 +57,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.passCtrl = true
     }
-
-    console.log(this.usuario);
+    
     this.authService.register(this.usuario)
       .subscribe({
         next: () => {
@@ -68,10 +69,22 @@ export class RegisterComponent implements OnInit {
           console.log(this.error);
         }
       });
-
-
   }
 
+  userExists() {
+    let usuario = this.registerForm.value;
+    this.userService.userExists(usuario.nombre_usuario.trim())
+      .subscribe({
+        next: (res : any) => {
+          this.exists = res.data;
+        },
+        error : error => {
+          this.error = error;
+          console.log(this.error);
+        }
+      })
+  }
+ 
   get nombre_usuario() { return this.registerForm.get('nombre_usuario'); }
   get password() { return this.registerForm.get('password'); }
   get nombre() { return this.registerForm.get('nombre'); }
