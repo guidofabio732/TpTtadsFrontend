@@ -90,7 +90,4 @@ export class RegisterComponent implements OnInit {
   get nombre() { return this.registerForm.get('nombre'); }
   get apellido() { return this.registerForm.get('apellido'); }
   get passwordConfirm() { return this.registerForm.get('passwordConfirm'); }
-
-
-
 }
