@@ -9,7 +9,7 @@ export class TipopiezaComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

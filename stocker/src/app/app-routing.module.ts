@@ -8,6 +8,7 @@ import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/tipomaquina', pathMatch: 'full' },
   { path: 'userlist', component: ListaUsuariosComponent, canActivate: [AuthGuard] },
   { path: 'tipomaquina', component: TipomaquinaComponent, canActivate: [AuthGuard]},
   { path: 'tipopieza', component: TipopiezaComponent, canActivate: [AuthGuard]},
