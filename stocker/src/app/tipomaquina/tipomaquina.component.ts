@@ -62,12 +62,4 @@ export class TipomaquinaComponent implements OnInit {
       err => console.log(err)
     )
   }
-
-  goToTipoPieza() {
-    this.router.navigate(['/tipopieza']);
-  }
-
-  logout() {
-    this.authService.logout();
-  }
 }

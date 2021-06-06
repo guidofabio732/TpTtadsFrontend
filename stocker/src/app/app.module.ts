@@ -10,6 +10,7 @@ import { JwtInterceptor } from './jwt.interceptor';
 import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { RegisterComponent } from './register/register.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
+import { NavegacionComponent } from './navegacion/navegacion.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TipopiezaComponent } from './tipopieza/tipopieza.component';
     TipomaquinaComponent,
     RegisterComponent,
     TipopiezaComponent,
+    NavegacionComponent,
   ],
   imports: [
     BrowserModule,
