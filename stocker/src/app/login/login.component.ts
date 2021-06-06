@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
     // si ya esta logueado lo manda a la pagina principal
     if (this.authService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/tipomaquina']);
     }
   }
 
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.usuario.nombre_usuario, this.usuario.password)
       .subscribe({
         next: () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/tipomaquina']);
         },
         error: error => {
           this.error = error;

@@ -9,6 +9,7 @@ import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.componen
 import { JwtInterceptor } from './jwt.interceptor';
 import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { RegisterComponent } from './register/register.component';
+import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
     ListaUsuariosComponent,
     TipomaquinaComponent,
     RegisterComponent,
+    TipopiezaComponent,
   ],
   imports: [
     BrowserModule,
