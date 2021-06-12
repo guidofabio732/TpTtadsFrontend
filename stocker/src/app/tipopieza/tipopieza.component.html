@@ -8,13 +8,13 @@
                   Agregar pieza
               </div>
               <div class="form-group">
-                <input type="text" [(ngModel)]="selectedTipoMaquina.descp" placeholder="Inserta descripción" class="form-control">
+                <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Inserta descripción" class="form-control">
               </div>
               <button (click)="addOrEdit()" class="btn btn-primary">
                 Enviar
               </button>
               <button
-              *ngIf="selectedTipoMaquina.id !==0"
+              *ngIf="selectedTipoPieza.id !==0"
               class="ml-5 btn btn-danger"
               (click)="delete()"
               >
@@ -23,13 +23,13 @@
             </div>
           </div>
         <ul class="list-group">
-            <li *ngFor='let tipomaquina of tiposMaquinaArray'
+            <li *ngFor='let tipopieza of tiposPiezaArray'
                 class="list-group-item"
-                (click)="openForEdit(tipomaquina)"
-                [class.active]="tipomaquina == selectedTipoMaquina"
+                (click)="openForEdit(tipopieza)"
+                [class.active]="tipopieza == selectedTipoPieza"
                 >
-                <span class="badge badge-primary">{{tipomaquina.id}}</span>
-                {{tipomaquina.descp}}
+                <span class="badge badge-primary">{{tipopieza.id}}</span>
+                {{tipopieza.descp}}
             </li>
         </ul>
         <div class="col-md-4"></div>
