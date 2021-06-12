@@ -8,7 +8,8 @@
                   Agregar pieza
               </div>
               <div class="form-group">
-                <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Inserta descripción" class="form-control">
+                <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Descripción" class="form-control">
+                <input type="text" [(ngModel)]="selectedTipoPieza.cant" placeholder="Cantidad" class="form-control">
               </div>
               <button (click)="addOrEdit()" class="btn btn-primary">
                 Enviar
@@ -26,10 +27,9 @@
             <li *ngFor='let tipopieza of tiposPiezaArray'
                 class="list-group-item"
                 (click)="openForEdit(tipopieza)"
-                [class.active]="tipopieza == selectedTipoPieza"
-                >
+                [class.active]="tipopieza == selectedTipoPieza">
                 <span class="badge badge-primary">{{tipopieza.id}}</span>
-                {{tipopieza.descp}}
+                {{tipopieza.descp}} | {{tipopieza.cant}}
             </li>
         </ul>
         <div class="col-md-4"></div>
