@@ -25,4 +25,8 @@ export class NavegacionComponent implements OnInit {
   goToTipoPieza() {
     this.router.navigate(['/tipopieza']);
   }
+
+  goToMaquinasPiezas() {
+    this.router.navigate(['/maquinaspiezas'])
+  }
 }

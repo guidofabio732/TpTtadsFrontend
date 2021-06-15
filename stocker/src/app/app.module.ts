@@ -11,6 +11,8 @@ import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { RegisterComponent } from './register/register.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
+import { MaquinaspiezasComponent } from './maquinaspiezas/maquinaspiezas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { NavegacionComponent } from './navegacion/navegacion.component';
     RegisterComponent,
     TipopiezaComponent,
     NavegacionComponent,
+    MaquinaspiezasComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { NavegacionComponent } from './navegacion/navegacion.component';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

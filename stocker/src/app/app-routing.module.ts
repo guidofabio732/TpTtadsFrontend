@@ -6,12 +6,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
+import { MaquinaspiezasComponent } from './maquinaspiezas/maquinaspiezas.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/tipomaquina', pathMatch: 'full' },
   { path: 'userlist', component: ListaUsuariosComponent, canActivate: [AuthGuard] },
   { path: 'tipomaquina', component: TipomaquinaComponent, canActivate: [AuthGuard]},
   { path: 'tipopieza', component: TipopiezaComponent, canActivate: [AuthGuard]},
+  { path: 'maquinaspiezas', component: MaquinaspiezasComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }
 ];
