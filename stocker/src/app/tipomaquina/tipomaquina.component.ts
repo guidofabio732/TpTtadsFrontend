@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { TipoMaquina } from '../models/tipomaquina';
 import { TipoMaquinaServiceService } from '../tipo-maquina-service.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -52,8 +51,7 @@ export class TipomaquinaComponent implements OnInit {
   }
 
   tiposMaquinaArray: any = [];
-  constructor(private tipoMaquinaService: TipoMaquinaServiceService,
-     private authService: AuthService, private router: Router) {}
+  constructor(private tipoMaquinaService: TipoMaquinaServiceService) {}
   ngOnInit() {
     this.tipoMaquinaService.getTipoMaquina().subscribe(
       res => {

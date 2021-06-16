@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { TipoPieza } from '../models/tipopieza';
 import { TipoPiezaServiceService } from '../tipo-pieza-service.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tipopieza',
@@ -51,8 +49,7 @@ export class TipopiezaComponent implements OnInit {
   }
 
   tiposPiezaArray: any = [];
-  constructor(private tipoPiezaService: TipoPiezaServiceService,
-     private authService: AuthService, private router: Router) {}
+  constructor(private tipoPiezaService: TipoPiezaServiceService) {}
   ngOnInit() {
     this.tipoPiezaService.getTipoPieza().subscribe(
       res => {
