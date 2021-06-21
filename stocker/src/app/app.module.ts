@@ -11,6 +11,8 @@ import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { RegisterComponent } from './register/register.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { NavegacionComponent } from './navegacion/navegacion.component';
     RegisterComponent,
     TipopiezaComponent,
     NavegacionComponent,
+    BusquedaComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<app-navegacion></app-navegacion>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 card mt-4">
+            <div class="card-body">
+                <div class="card-title text-center">
+                    <h2 class="h4">Resultados para la búsqueda "{{query}}"</h2>
+                </div>
+                <div *ngIf="maquinas.length">
+                    <h3 class="h4 mt-4">Máquinas: </h3>
+                    <div class="list-group" *ngFor="let maquina of maquinas">
+                        <a class="list-group-item mt-1 list-group-item-action">
+                            <span class="badge badge-dark">{{maquina.id}}</span> - {{maquina.descp}}
+                        </a>
+                    </div>
+                </div>
+                <div *ngIf="piezas.length">
+                    <h3 class="h4 mt-4">Piezas: </h3>
+                    <div class="list-group" *ngFor="let pieza of piezas">
+                        <a class="list-group-item mt-1 list-group-item-action">
+                            <span class="badge badge-dark">{{pieza.id}}</span> - {{pieza.descp}} - {{pieza.cant}}
+                        </a>
+                    </div>
+                </div>
+                <div *ngIf="!maquinas.length && !piezas.length">
+                    <h4 class="h5">No hay resultados</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

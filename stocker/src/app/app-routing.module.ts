@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 import { TipomaquinaComponent } from './tipomaquina/tipomaquina.component';
 import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'tipomaquina', component: TipomaquinaComponent, canActivate: [AuthGuard]},
   { path: 'tipopieza', component: TipopiezaComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'resultados/:query', component: ResultadosComponent}
 ];
 
 @NgModule({
