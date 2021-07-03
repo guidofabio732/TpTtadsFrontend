@@ -13,6 +13,8 @@ import { TipopiezaComponent } from './tipopieza/tipopieza.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { MaquinaspiezasComponent } from './maquinaspiezas/maquinaspiezas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TipopiezaComponent,
     NavegacionComponent,
     MaquinaspiezasComponent,
+    BusquedaComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,

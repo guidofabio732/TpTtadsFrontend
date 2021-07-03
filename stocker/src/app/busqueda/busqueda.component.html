@@ -1,0 +1,10 @@
+<form class="form-inline">
+    <div class="form-group m-3">
+        <label hidden for="buscar">Buscar</label>
+        <input name="buscar" id="buscar" class="form-control" type="text" placeholder="Buscar..."
+            [(ngModel)]="searchQuery">
+    </div>
+    <button type="button" class="btn btn-success" (click)="buscar()">
+        <i class="bi bi-search"></i>
+    </button>
+</form>
