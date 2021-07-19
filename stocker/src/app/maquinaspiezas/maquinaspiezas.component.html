@@ -3,7 +3,7 @@
     <div class="row mt-4 justify-content-center">
       <div class="col-md-4">
         <div ngbDropdown>
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Máquina</button>
+          <button class="col-md-4 btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Máquina</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <table>
               <tr *ngFor="let maquina of maquinasArray" (click)="selectMaquina(maquina)">
@@ -13,14 +13,14 @@
               </tr>
             </table>
           </div>
-          <input type="text" [(ngModel)]="selectedTipoMaquina.descp" placeholder="Tipo máquina" class="align-middle w-50 form-control d-inline ml-4">
+          <input type="text" [(ngModel)]="selectedTipoMaquina.descp" placeholder="Tipo máquina" class="col-md-8 align-middle w-50 form-control d-inline ml-4">
         </div>
       </div>
     </div>    
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div ngbDropdown>
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pieza</button>
+          <button class="col-md-4 btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pieza</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <table>
               <tr *ngFor="let pieza of piezasArray" (click)="selectPieza(pieza)">
@@ -30,7 +30,7 @@
               </tr>
             </table>
           </div>
-          <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Tipo pieza" class="align-middle w-50 form-control d-inline ml-4">
+          <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Tipo pieza" class="col-md-8 align-middle w-50 form-control d-inline ml-4">
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <div class="col-md-4">
         <div class="form-group row align-items-center">
           <label for="cantidad" class="col-form-label col-md-4">Cantidad:</label>
-          <div class="col-md-6">
+          <div class="col-md-7">
             <input class="form-control" name="cantidad" type="number" [(ngModel)]="cantidad">
           </div>
         </div>
