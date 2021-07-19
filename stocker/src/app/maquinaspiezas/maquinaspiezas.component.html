@@ -1,9 +1,8 @@
 <app-navegacion></app-navegacion>
-<div class="container">
-  <div class="card mt-4">
-    <div class="row">
-      <div class="col-4">
-        <div ngbDropdown class="ml-2 mt-4">
+<div class="container card mt-4">
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-4">
+        <div ngbDropdown>
           <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Máquina</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <table>
@@ -17,8 +16,10 @@
           <input type="text" [(ngModel)]="selectedTipoMaquina.descp" placeholder="Tipo máquina" class="align-middle w-50 form-control d-inline ml-4">
         </div>
       </div>
-      <div class="col-4">
-        <div ngbDropdown class="ml-2 mt-4">
+    </div>    
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div ngbDropdown>
           <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pieza</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <table>
@@ -32,43 +33,20 @@
           <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Tipo pieza" class="align-middle w-50 form-control d-inline ml-4">
         </div>
       </div>
-      <div class="col-4">
-        <div id="hola">block</div>
-      </div>
     </div>
-  </div>
-</div>
-
-
-<!--<div class="container">
-  <div class="card">
-    <div class="row">
-        <div ngbDropdown class="ml-5 mb-4">
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Seleccionar Máquina</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <table>
-              <tr *ngFor="let maquina of maquinasArray" (click)="selectMaquina(maquina)">
-                <td>
-                  <button class="btn btn-outline-primary" ngbDropdownItem>{{maquina.descp}}</button>
-                </td>
-              </tr>
-            </table>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="form-group row align-items-center">
+          <label for="cantidad" class="col-form-label col-md-4">Cantidad:</label>
+          <div class="col-md-6">
+            <input class="form-control" name="cantidad" type="number" [(ngModel)]="cantidad">
           </div>
-          <input type="text" [(ngModel)]="selectedTipoMaquina.descp" placeholder="Tipo máquina" class="form-control">
-      </div>
-      <div ngbDropdown class="ml-5 mb-4">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Seleccionar Pieza</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <table>
-            <tr *ngFor="let pieza of piezasArray" (click)="selectPieza(pieza)">
-              <td>
-                <button class="btn btn-outline-primary" ngbDropdownItem>{{pieza.descp}}</button>
-              </td>
-            </tr>
-          </table>
         </div>
-        <input type="text" [(ngModel)]="selectedTipoPieza.descp" placeholder="Tipo pieza" class="form-control">
+      </div>
     </div>
-  </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <button (click)="agregarMaquinaPieza()" class="btn btn-success">Agregar</button>
+      </div>
+    </div>
 </div>
--->
