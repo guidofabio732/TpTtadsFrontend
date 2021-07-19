@@ -14,4 +14,8 @@ export class MaquinasPiezasService {
   agregarMaquinaPieza(maquinaPieza: MaquinaPieza) {
     return this.http.post(`${this.apiUrl}/maquina_pieza/create`, maquinaPieza)
   }
+
+  getMaquinasPiezas() {
+    return this.http.get(`${this.apiUrl}/maquina_pieza/list`)
+  }
 }

@@ -50,3 +50,22 @@
       </div>
     </div>
 </div>
+
+<div class="container card mt-2" *ngIf = "maquinasPiezas">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Máquina</th>
+        <th>Pieza</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let maquinaPieza of maquinasPiezas">
+        <th>{{maquinaPieza.id_maquina}}</th>
+        <th>{{maquinaPieza.id_pieza}}</th>
+        <th>{{maquinaPieza.cant}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

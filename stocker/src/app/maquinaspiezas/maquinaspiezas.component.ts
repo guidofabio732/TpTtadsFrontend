@@ -27,9 +27,10 @@ export class MaquinaspiezasComponent implements OnInit {
     private tipoMaquinaService: TipoMaquinaServiceService,
     private tipoPiezaService: TipoPiezaServiceService,
     private maquinasPiezasService: MaquinasPiezasService
-     ) { }
+  ) { }
 
   ngOnInit() {
+
     this.tipoMaquinaService.getTipoMaquina().subscribe(
       res => {
         this.maquinasArray = res
@@ -40,6 +41,15 @@ export class MaquinaspiezasComponent implements OnInit {
       res => {
         this.piezasArray = res
       },
+      err => console.log(err)
+    )
+
+    this.getMaquinasPiezas();
+  }
+
+  getMaquinasPiezas() {
+    this.maquinasPiezasService.getMaquinasPiezas().subscribe(
+      (res: MaquinaPieza[]) => this.maquinasPiezas = res ,
       err => console.log(err)
     )
   }
@@ -56,9 +66,20 @@ export class MaquinaspiezasComponent implements OnInit {
     this.maquinasPiezasService.agregarMaquinaPieza(this.maquinaPieza)
       .subscribe(
         res => { console.log(res) },
-        err => console.log(err))
+        err => console.log(err)
+      );
+
+    this.maquinasPiezas.push(this.maquinaPieza);
+
+    // Limpieza de los campos del form
+
+    this.selectedTipoMaquina.id = 0;
+    this.selectedTipoMaquina.descp = '';
+    this.selectedTipoPieza.descp = '';
+    this.selectedTipoPieza.id = 0;
+    this.cantidad = null;
   }
-  
+
   selectMaquina(tipoMaquina: TipoMaquina) {
     this.selectedTipoMaquina = tipoMaquina
   }
